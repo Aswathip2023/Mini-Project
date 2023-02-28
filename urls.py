@@ -1,10 +1,10 @@
+from . import views
 from django.urls import path
-from  . import views
+from django.contrib.auth import views as auth_views
 
-app_name='cart'
-urlpatterns=[
-    path('add/<int:product_id>/',views.add_cart,name='add_cart'),
-    path('',views.cart_detail,name='cart_detail'),
-    path('full_remove/<int:product_id>/', views.full_remove, name='full_remove'),
-
-]
+app_name='ShoppingApp'
+urlpatterns = [
+    path('shopping/shopping/', views.allProdCat, name='allProdCat'),
+    path('<slug:c_slug>/', views.allProdCat, name='products_by_category'),
+    path('<slug:c_slug>/<slug:product_slug>/', views.proDetail, name='prodCatdetail'),
+    ]

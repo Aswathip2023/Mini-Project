@@ -1,18 +1,22 @@
 from django.contrib import admin
 
 # Register your models here.
-from cart.models import Cart, CartItem
+from ShoppingApp.models import Category, Product
 
 
-class CartItemAdmin(admin.ModelAdmin):
-    list_display = ['user', 'product', 'cart', 'quantity', 'active']
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
 
 
-admin.site.register(CartItem, CartItemAdmin)
+admin.site.register(Category, CategoryAdmin)
 
 
-class CartAdmin(admin.ModelAdmin):
-    list_display = ['cart_id', 'date_added']
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name', 'price','stock','available','created','updated']
+    list_editable = ['price','stock','available']
+    prepopulated_fields = {'slug': ('name',)}
+    list_per_page = 20
 
 
-admin.site.register(Cart, CartAdmin)
+admin.site.register(Product, ProductAdmin)
