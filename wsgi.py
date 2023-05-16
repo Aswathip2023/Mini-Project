@@ -1,5 +1,5 @@
 """
-WSGI config for Wedding_Management_system project.
+WSGI config for wedding project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Wedding_Management_system.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wedding.settings')
 
 application = get_wsgi_application()
